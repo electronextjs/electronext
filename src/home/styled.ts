@@ -10,7 +10,7 @@ export const ElectroNextHomeContainer = styled.div`
   gap: 2rem;
 
 
-  .heart {
+  & .heart {
     font-size: 4.5rem;
     font-family: system-ui;
     animation: pulse 2s linear infinite;
@@ -20,21 +20,21 @@ export const ElectroNextHomeContainer = styled.div`
     50% {transform: scale(1.1);}
     100% {transform: scale(1);}
   }
-  .icons {
+  & .icons {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .ElectronIcon {
+  & .ElectronIcon {
     width: 20rem;
   }
 
-  .NextIcon {
+  & .NextIcon {
     width: 6rem;
   }
 
-  .footer {
+  & .footer {
     display: flex;
     gap: 0.15rem;
   }

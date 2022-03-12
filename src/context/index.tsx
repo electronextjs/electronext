@@ -13,6 +13,7 @@ const ElectroNextContext = createContext<ElectroNextContextType>({
   setMenuState: () => null,
   DomRendered: false,
   config: DefaultConfig,
+  Electron: null
 })
 
 export default ElectroNextContext

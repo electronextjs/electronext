@@ -9,16 +9,16 @@ import ElectroNextContext from '../context'
 import { DefaultConfig } from '../config'
 
 
-const ElectroNextApp = ({config = DefaultConfig}, props:ElectroNextProviderProps) => {
-  const [title, setTitle] = useState<string | null>(props.title) 
-  const [favicon, setFavicon] = useState<string | null>(props.favicon) 
+const ElectroNextApp = (props:ElectroNextProviderProps) => {
+  const [title, setTitle] = useState<string | null>(props.title ?? null) 
+  const [favicon, setFavicon] = useState<string | null>(props.favicon ?? null) 
   const [titleBarColor, setTitleBarColor] = useState<string | null>(props.titleBarColor ?? 'transparent') 
 
   const [menuState, setMenuState] = useState<boolean | null>(false)
   const [DomRendered, setDomRendered] = useState(false)
 
-  //const config = props.config ?? DefaultConfig
-
+  const Electron = props.Electron
+  const config = props.config ?? DefaultConfig
 
   //@setDomRendered
   useEffect(() => setDomRendered(true), [])
@@ -29,7 +29,8 @@ const ElectroNextApp = ({config = DefaultConfig}, props:ElectroNextProviderProps
       favicon, setFavicon, 
       titleBarColor, setTitleBarColor,
       menuState, setMenuState,
-      config
+      config, 
+      Electron
     }
     }>
       <ElectroNextStyle/>

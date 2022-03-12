@@ -1,12 +1,12 @@
-import { ReactNode, useContext, useEffect, useState } from 'react'
+import React, { ReactNode, useContext, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
-import { useClickOut, useElectroNext } from 'electronext'
+import { useClickOut, useElectroNextApp } from '../../hooks'
 
 import {ButtonList} from '../ButtonList'
 import { DrawerContainer, DrawerFooter, DrawerMain, Hr } from './styled'
 
-import { IconDoc, IconIssue, IconRepo, IconReport } from '.electronext/icons'
-import ElectroNextContext from '.electronext/context'
+import { IconDoc, IconIssue, IconRepo, IconReport } from '../../icons'
+import ElectroNextContext from '../../context'
 
 
 //@export component
@@ -18,7 +18,7 @@ export const MenuDrawer = ({CustomMenuDrawer, onClickOut}:{
   const {isVisible, ref, setIsVisible} = useClickOut(false)
   //@warn useElectroNext
   const { setMenuState } = useContext(ElectroNextContext)
-  const { menuState } = useElectroNext()
+  const { menuState } = useElectroNextApp()
 
   const [menuLoaded, setMenuLoaded] = useState(false)
   const [menuAnimation, setAnimation] = useState(false)

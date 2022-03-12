@@ -1,9 +1,20 @@
 {
   "name":"electronext",
-  "version":"0.1.0",
-  "author":"André Malveira",
-  "module":"dist/electronext.esm.js",
+  "version":"1.0.3",
+  "description": "ElectronNext.js Modules and Components, Functional only in ElectronNext.js",
+  "repository": "https://github.com/electronextjs",
+  "author": {
+    "name": "André Malveira",
+    "email": "andremalveira.dev@gmail.com",
+    "url":"https://github.com/andremalveira"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "license":"MIT",
+
+  "module":"dist/electronext.esm.js",
   "main":"dist/index.js",
   "typings":"dist/index.d.ts",
   "files":[

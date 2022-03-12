@@ -9,18 +9,21 @@ import { HeadData } from '../HeadData'
 
 
 //@GLOBAL VARIABLE
-const ipcRenderer = globalThis.ipcRenderer; 
+//const ipcRenderer = Electron.ipcRenderer; 
 
 
 //@Window controls
 const CloseApp = () => {
-  ipcRenderer.send('CloseApp')
+  const { Electron } = useContext(ElectroNextContext)
+  Electron.ipcRenderer.send('CloseApp')
 }
 const MinimizeApp = () => {
-  ipcRenderer.send('MinimizeApp')
+  const { Electron } = useContext(ElectroNextContext)
+  Electron.ipcRenderer.send('MinimizeApp')
 }
 const MaximizeApp = () => {
-  ipcRenderer.send('MaximizeApp')
+  const { Electron } = useContext(ElectroNextContext)
+  Electron.ipcRenderer.send('MaximizeApp')
 }
 
 const WindowsControls = () => {

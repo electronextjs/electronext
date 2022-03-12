@@ -11,6 +11,7 @@ export type ElectroNextContextType = {
   setMenuState: Dispatch<SetStateAction<boolean | null>>
   DomRendered: boolean;
   config: ElectroNextAppConfig;
+  Electron: any,
 }
 
 export type ElectroNextContextTypeClient = {
@@ -33,10 +34,11 @@ export type ElectroNextAppConfig = {
 export type ElectroNextProviderProps = {
   children: ReactNode
   CustomMenuDrawer?: React.ReactElement | JSX.Element,
-  title: string | null;
-  favicon: string | null;
-  titleBarColor: string | null;
-  config: ElectroNextAppConfig
+  title?: string | null;
+  favicon?: string | null;
+  titleBarColor?: string | null;
+  config?: ElectroNextAppConfig,
+  Electron: any,
 }
 
 export type useElectroNextAppProps = {
