@@ -12,7 +12,7 @@ export const ButtonList = (props:ButtonList ) => {
   const [active, setActive] = useState(props.active ?? false)
   const buttonType = props.type ?? 'click'
 
-  const onClick = (e:MouseEvent<HTMLButtonElement>) => {
+  const onClick = (e:MouseEvent<HTMLDivElement>) => {
     !props.href && props.onClick && props.onClick(e)
     buttonType == 'select' && setActive(!active)
     props.href && window.open(props.href)

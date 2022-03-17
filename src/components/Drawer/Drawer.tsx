@@ -5,25 +5,33 @@ import { ReactNode, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-import { DrawerContainer } from './styled'
+import { DrawerContainer, Relative } from './styled'
 
 type Drawer = {
-  visible: boolean | null;
-  onClickOut?: (state?:boolean) => any;
+  visible: boolean;
+  onClose?: (res:{clickOut?:boolean}) => any;
+  clickOut?: boolean;
   children: ReactNode;
-  background?: string;
   placement?: 'left' | 'right';
+  
+  style?: React.CSSProperties;
+  className?: string;
+  id?: string;
 }
 
 export const Drawer = ({
   visible, 
-  onClickOut, 
+  onClose,
+  clickOut,
   children,
-  placement = 'left'
+  placement = 'left',
+  style,
+  className,
+  id,
 }:Drawer) => {
   //@warn useClickOut
   const {isVisible, ref, setIsVisible} = useClickOut(false)
-  const [menuState, setMenuState ] = useState<boolean | null >(visible)
+  //const [menuState, setMenuState ] = useState<boolean | null >(visible)
   const [menuLoaded, setMenuLoaded] = useState<boolean | null >(false)
   const [menuAnimation, setAnimation] = useState<boolean | null >(false)
 
@@ -38,22 +46,30 @@ export const Drawer = ({
   }
 
   useEffect(() => {
-    !isVisible && onClickOut && onClickOut(isVisible)
-    setMenuState(false)
+    if(clickOut) {
+      !isVisible && onClose && onClose({clickOut:!isVisible})
+      //!isVisible && setMenuState(false)
+      //!isVisible && setIsVisible(false)
+    }
   }, [isVisible])
 
   useEffect(() => {
-    setIsVisible(true)
-    showMenu(menuState, 40)
-  }, [menuState])
+    clickOut && setIsVisible(visible)
+    showMenu(visible, 40)
+  }, [visible])
+
 
   return(<>
    {menuLoaded && ReactDOM.createPortal( 
      <DrawerContainer 
+      id={id}
+      style={style}
       ref={ref} 
-      className={`modtwo ${placement} ${menuAnimation ? 'show' : ''}`}
+      className={`modtwo ${placement} ${menuAnimation ? 'show' : ''} ${className}`}
      >
-       {children}
+       <Relative>
+        {children}
+       </Relative>
      </DrawerContainer>
    , document.body)}
   </>)

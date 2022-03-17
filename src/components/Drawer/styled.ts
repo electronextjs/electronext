@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const DrawerContainer = styled.div`
   position: fixed;
   top: 0;
+  min-width: 12rem;
   height: 100vh;
   padding: 2rem 0.5rem;
   background: #231f1f4f;
@@ -47,6 +48,26 @@ export const DrawerContainer = styled.div`
   @keyframes closeMenuDrawer {
     0% {transform: translateX(0)}
     100% {transform: translateX(-100%)}
+  }
+`
+export const Relative = styled.div`
+  position: relative;
+  height: 100%;
+
+  & .btnclose {
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #231f1f4f;
+    user-select: none;
+    cursor: pointer;
   }
 `
 

@@ -1,28 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Title, Favicon } from '../'
 import { ElectroNextHomeContainer } from './styled'
+import { Drawer, useElectroNextApp } from "../"
 
 export const ElectroNextHome = () => {
+  const { title } = useElectroNextApp({
+    title: 'New Title',
+    favicon: '/img/favicon/electron.png'
+  })
+
+  const [show, setShow] = useState(false)
+  const [show2, setShow2] = useState(false)
 return (<>
     <Title>ElectroNext.js App Template </Title>
     <Favicon src='/img/favicon/electron.png'/>
 
     <ElectroNextHomeContainer >
-      <div className='heart'>
+      <div className='heart' onClick={() => {setShow2(!show2)}}>
         ❤️
       </div>
       <div className='icons'>
         <ElectronIcon/>
         <NextIcon/>
       </div>
-        With Vibrancy
-      <div className='footer'>by
+      <div className='footer' onClick={() => {setShow(!show)}}>
+        {title}
+        {/* by
         <a href="https://github.com/andremalveira" target='_blank'>
         andremalveira  
-        </a>
+        </a> */}
       </div>
-
+        <Drawer 
+          visible={show}
+        >
+          teste
+        </Drawer>
+        <Drawer 
+          placement='right'
+          visible={show2}
+        >
+          teste2
+        </Drawer>
     </ElectroNextHomeContainer>
   </>)
 }

@@ -4,13 +4,13 @@ type ButtonListContainer = {
   type?: 'click' | 'select';
 }
 
-export const ButtonListContainer = styled.button<ButtonListContainer>`
+export const ButtonListContainer = styled.div<ButtonListContainer>`
   position: relative;
   border: 0;
   background-color: transparent;
   text-align: left;
-  padding: 0.7rem 1rem;
-  width: 100%;
+  padding: 0.5rem 1rem;
+  width: auto;
   transition: ease 0.05s;
   color: currentColor;
   cursor: pointer;
@@ -19,6 +19,8 @@ export const ButtonListContainer = styled.button<ButtonListContainer>`
   align-items: center;
   overflow: hidden; 
   gap: 0.8rem;
+  font-size: 0.9rem;
+  line-height: normal;
 
   &.active, &.click:active:active {
     background-color: var(--electronext-button-active);
@@ -57,7 +59,8 @@ export const ButtonListContainer = styled.button<ButtonListContainer>`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    font-style: normal;
+    
     & svg {
       width: 16px;
       height: 16px;

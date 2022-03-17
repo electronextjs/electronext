@@ -13,40 +13,30 @@ import { HeadData } from '../HeadData'
 
 
 //@Window controls
-const CloseApp = () => {
-  const { Electron } = useContext(ElectroNextContext)
-  Electron.ipcRenderer.send('CloseApp')
-}
-const MinimizeApp = () => {
-  const { Electron } = useContext(ElectroNextContext)
-  Electron.ipcRenderer.send('MinimizeApp')
-}
-const MaximizeApp = () => {
-  const { Electron } = useContext(ElectroNextContext)
-  Electron.ipcRenderer.send('MaximizeApp')
-}
-
 const WindowsControls = () => {
   const [isMaximized, setIsMaximized] = useState(false)
+  const { Electron } = useContext(ElectroNextContext)
+
   return(<>
     <div className={'windows-controls'}>
-      <div className="native minimize" onClick={MinimizeApp}>&#xE921;</div>
+      <div className="native minimize" onClick={() => Electron.ipcRenderer.send('MinimizeApp')}>&#xE921;</div>
       <div className="native maximize" 
-      onClick={() => {MaximizeApp(); setIsMaximized(!isMaximized)}}>
+      onClick={() => {Electron.ipcRenderer.send('MaximizeApp'); setIsMaximized(!isMaximized)}}>
         {isMaximized ? <>&#xE923;</> : <>&#xE922;</>}
       </div>
-      <div className="native close" onClick={CloseApp}>&#xE8BB;</div>
+      <div className="native close" onClick={() => Electron.ipcRenderer.send('CloseApp')}>&#xE8BB;</div>
 
     </div>
   </>)
 }
 const MacosControls = () => {
+  const { Electron } = useContext(ElectroNextContext)
 
   return(<>
     <div className={'macos-controls'}>
-      <div className='dot y' onClick={MinimizeApp}></div>
-      <div className='dot g' onClick={MaximizeApp}></div>
-      <div className='dot r' onClick={CloseApp}></div>
+      <div className='dot y' onClick={() => Electron.ipcRenderer.send('MinimizeApp')}></div>
+      <div className='dot g' onClick={() => Electron.ipcRenderer.send('MaximizeApp')}></div>
+      <div className='dot r' onClick={() => Electron.ipcRenderer.send('CloseApp')}></div>
     </div>
   </>)
 }
@@ -79,7 +69,7 @@ const TitleBar = () => {
     }
   },[])
 
-  const isFavicon = windowFavicon ?? title
+  const isFavicon = windowFavicon ?? favicon
 
   return(<>
    {config.titleBar.visible && 

@@ -12,7 +12,7 @@ interface Button extends ButtonDefault {
 export const Button = (props:Button) => {
   const buttonType = props.type ?? 'default'
 
-  const onClick = (e:MouseEvent<HTMLButtonElement>) => {
+  const onClick = (e:MouseEvent<HTMLDivElement>) => {
     !props.href && props.onClick && props.onClick(e)
     props.href && window.open(props.href)
   }

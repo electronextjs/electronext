@@ -11,7 +11,7 @@ const ElectroNextContext = createContext<ElectroNextContextType>({
   setTitleBarColor: () => null,
   menuState: null,
   setMenuState: () => null,
-  DomRendered: false,
+  loading: false,
   config: DefaultConfig,
   Electron: null
 })

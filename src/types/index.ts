@@ -9,20 +9,27 @@ export type ElectroNextContextType = {
   setTitleBarColor: Dispatch<SetStateAction<string | null>>
   menuState: boolean | null;
   setMenuState: Dispatch<SetStateAction<boolean | null>>
-  DomRendered: boolean;
-  config: ElectroNextAppConfig;
+  loading: boolean;
+  config: enConfigAppType;
   Electron: any,
 }
 
-export type ElectroNextContextTypeClient = {
+export type UseElectroNextApp = {
   title: string;
   favicon: string;
   titleBarColor: string;
   menuState: boolean;
-  DomRendered: boolean;
+  loading: boolean;
 }
 
-export type ElectroNextAppConfig = {
+export type UseElectroNextAppOptions = {
+  title?: string | null;
+  favicon?: string | null;
+  titleBarColor?: string | null;
+  menuState?: boolean;
+}
+
+export interface enConfigAppType {
   titleBar: {
     visible: boolean,
     favIcon: boolean,
@@ -37,22 +44,16 @@ export type ElectroNextProviderProps = {
   title?: string | null;
   favicon?: string | null;
   titleBarColor?: string | null;
-  config?: ElectroNextAppConfig,
+  config?: enConfigAppType,
   Electron: any,
 }
 
-export type useElectroNextAppProps = {
-  title?: string | null;
-  favicon?: string | null;
-  titleBarColor?: string | null;
-  menuState?: boolean;
-}
 
 export interface ButtonDefault {
   label: string;
   icon?: string | JSX.Element;
   active?: boolean;
-  onClick?: (e?:MouseEvent<HTMLButtonElement>) => any;
+  onClick?: (e?:MouseEvent<HTMLDivElement>) => any;
   href?: string;
   fontSize?: number;
 }

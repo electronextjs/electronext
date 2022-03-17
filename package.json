@@ -1,8 +1,8 @@
 {
   "name":"electronext",
-  "version":"1.0.3",
-  "description": "ElectronNext.js Modules and Components, Functional only in ElectronNext.js",
-  "repository": "https://github.com/electronextjs",
+  "version":"1.0.4",
+  "description": "This package has modules and functional components for the ElectroNext.js project",
+  "repository": "https://github.com/electronextjs/electronext",
   "author": {
     "name": "André Malveira",
     "email": "andremalveira.dev@gmail.com",
@@ -13,7 +13,17 @@
     "access": "public"
   },
   "license":"MIT",
-
+  "keywords": [
+    "electronjs",
+    "electron.js",
+    "nextjs",
+    "next.js",
+    "react",
+    "react.js",
+    "ElectroNext",
+    "ElectroNext.js",
+    "create-electronext-app"
+  ],
   "module":"dist/electronext.esm.js",
   "main":"dist/index.js",
   "typings":"dist/index.d.ts",

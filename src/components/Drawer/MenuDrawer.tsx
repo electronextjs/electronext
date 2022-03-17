@@ -75,7 +75,7 @@ const MenuElectroNext = () => {
       <div style={{
         textAlign: 'center', 
         fontSize: '0.8rem'
-      }}><a href='#'>EletroNext.js</a></div>
+      }}><a href='#'>ElectroNext.js</a></div>
     </DrawerFooter>
   </>)
 }

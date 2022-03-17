@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.div`
   position: relative;
   border: 0;
   text-align: left;
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   transition: ease 0.3s;
   background-color: transparent;
   color: currentColor;
@@ -15,9 +15,10 @@ export const ButtonContainer = styled.button`
   overflow: hidden; 
   gap: 0.8rem;
   min-width: 7rem;
-  min-height: 2.3rem;
   justify-content: center;
   z-index: 0;
+  font-size: 0.9rem;
+  line-height: normal;
 
   span {
     z-index: 1;
@@ -42,6 +43,7 @@ export const ButtonContainer = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    font-style: normal;
 
     & svg {
       width: 16px;
@@ -53,6 +55,7 @@ export const ButtonContainer = styled.button`
   }
   &.primary {
     background-color: var(--electronext-button-primary);
+    color: #fff;
   }
   &.dark {
     background-color: var(--electronext-button-dark);

@@ -1,16 +1,17 @@
 import { useContext, useEffect } from "react"
 
 import ElectroNextContext from "../context"
-import { ElectroNextContextTypeClient, useElectroNextAppProps } from '../types'
+import { UseElectroNextApp, UseElectroNextAppOptions } from '../types'
 
-const useElectroNextApp = (props?:useElectroNextAppProps) => {
-  const { setTitle, setFavicon, setTitleBarColor } = useContext(ElectroNextContext)
+const useElectroNextApp = (options?:UseElectroNextAppOptions) => {
+  const { setTitle, setFavicon, setTitleBarColor, setMenuState } = useContext(ElectroNextContext)
   useEffect(() => {
-    if(props?.title){setTitle(props.title)}
-    if(props?.favicon){setFavicon(props.favicon)}
-    if(props?.titleBarColor){setTitleBarColor(props.titleBarColor)}
+    if(options?.title){setTitle(options.title)}
+    if(options?.favicon){setFavicon(options.favicon)}
+    if(options?.titleBarColor){setTitleBarColor(options.titleBarColor)}
+    if(options?.menuState){setMenuState(options.menuState)}
   },[])
-  return  useContext(ElectroNextContext) as ElectroNextContextTypeClient
+  return  useContext(ElectroNextContext) as UseElectroNextApp
 }
 
 export default useElectroNextApp

@@ -1,6 +1,6 @@
-import {ElectroNextAppConfig} from '../types'
+import {enConfigAppType} from '../types'
 
-export const DefaultConfig:ElectroNextAppConfig = {
+export const DefaultConfig:enConfigAppType = {
   titleBar: {
     visible:true,
     favIcon: true,

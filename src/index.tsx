@@ -1,4 +1,3 @@
-
 //@imports
 import { useContext, useEffect } from "react"
 
@@ -19,56 +18,49 @@ import {
   Button,ButtonList,
   Drawer,DrawerFooter,
   DrawerHeader, DrawerMain,
-  Hr, Loading
+  Hr, Loading,
 
 } from './components'
 
 
+//@Exports
+export {
+  //@hooks
+  useElectroNextApp,
+  useClickOut,
+
+  //@ElectroNext Home Page
+  ElectroNextHome,
+
+  //@compoenents
+  Button, ButtonList,
+  Drawer, DrawerFooter,
+  DrawerHeader, DrawerMain,
+  Hr, Loading
+}
+export type { enConfigAppType } from './types'
+export default ElectroNextApp
+
 //others components
-const Title = ({children}:{children: string}) => {
+
+export const Title = ({children}:{children: string}) => {
   const { setTitle } = useContext(ElectroNextContext)
   useEffect(() => {
     setTitle(children)
   },[children])
   return null
 }
-const Favicon = ({src}:{src: string})  => {
+export const Favicon = ({src}:{src: string})  => {
   const { setFavicon } = useContext(ElectroNextContext)
   useEffect(() => {
     setFavicon(src)
   },[src])
   return null
 }
-const TitleBarColor = ({color}:{color: string})  => {
+export const TitleBarColor = ({color}:{color: string})  => {
   const { setTitleBarColor } = useContext(ElectroNextContext)
   useEffect(() => {
     setTitleBarColor(color)
   },[color])
   return null
 }
-
-
-//@Exports
-export {
-  //@Electron
-
-  //@hooks
-  useElectroNextApp, 
-  useClickOut,
-
-  //@Functions
-  Title,
-  Favicon,
-  TitleBarColor,
-
-  //@ElectroNext Home Page
-  ElectroNextHome,
-
-  //@compoenents
-  Button,ButtonList,
-  Drawer,DrawerFooter,
-  DrawerHeader, DrawerMain,
-  Hr, Loading
-}
-export default ElectroNextApp
-
