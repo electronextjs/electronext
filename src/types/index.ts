@@ -56,4 +56,17 @@ export interface ButtonDefault {
   onClick?: (e?:MouseEvent<HTMLDivElement>) => any;
   href?: string;
   fontSize?: number;
+  ref?: React.MutableRefObject<any>;
+}
+
+export interface DrawerDefault {
+  visible: boolean;
+  onClose?: (res:{clickOut?:boolean}) => any;
+  clickOut?: boolean;
+  children: ReactNode;
+  placement?: 'left' | 'right';
+  btnRef?: React.MutableRefObject<HTMLDivElement | HTMLButtonElement> | React.MutableRefObject<any> ;
+  style?: React.CSSProperties;
+  className?: string;
+  id?: string;
 }

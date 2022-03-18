@@ -6,8 +6,8 @@ export const DrawerContainer = styled.div`
   min-width: 12rem;
   height: 100vh;
   padding: 2rem 0.5rem;
-  background: #231f1f4f;
-  z-index: 0;
+  background: var(--electronext-overlay);
+  z-index: 99;
   box-sizing: border-box;
   //box-shadow: 0px 0px 0px 1px #6969693d;
   transition: ease 0.2s;
@@ -96,6 +96,6 @@ export const Hr = styled.hr`
   margin: 0.4rem 0;
   width: 100%;
   height: 1px;
-  background-color: #63636347;
+  background-color: var(--electronext-border);
 `
 

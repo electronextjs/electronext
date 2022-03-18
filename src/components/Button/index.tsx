@@ -9,7 +9,7 @@ interface Button extends ButtonDefault {
   type?: 'default' | 'primary' | 'dark' | 'succ' | 'info' | 'warn' | 'dang' | 'gray';
   loading?:boolean;
 }
-export const Button = (props:Button) => {
+export const Button = React.forwardRef((props:Button, ref:React.Ref<HTMLDivElement>) => {
   const buttonType = props.type ?? 'default'
 
   const onClick = (e:MouseEvent<HTMLDivElement>) => {
@@ -19,6 +19,7 @@ export const Button = (props:Button) => {
 
   return(<>
     <ButtonContainer
+      ref={ref}
       onClick={e => onClick(e)}
       className={`${buttonType} `}
       style={{
@@ -37,4 +38,4 @@ export const Button = (props:Button) => {
       
     </ButtonContainer>
   </>)
-}
+})

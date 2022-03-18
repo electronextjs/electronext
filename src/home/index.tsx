@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import { Title, Favicon } from '../'
 import { ElectroNextHomeContainer } from './styled'
-import { Drawer, useElectroNextApp } from "../"
+import { Drawer, useElectroNextApp, Button } from "../"
+
 
 export const ElectroNextHome = () => {
   const { title } = useElectroNextApp({
     title: 'New Title',
     favicon: '/img/favicon/electron.png'
   })
+
+  const btnRef = useRef(null)
 
   const [show, setShow] = useState(false)
   const [show2, setShow2] = useState(false)
@@ -24,15 +27,20 @@ return (<>
         <ElectronIcon/>
         <NextIcon/>
       </div>
-      <div className='footer' onClick={() => {setShow(!show)}}>
-        {title}
+      <div className='footer' >
+        <Button ref={btnRef} label={title} onClick={() => {setShow(!show)}}/>
         {/* by
         <a href="https://github.com/andremalveira" target='_blank'>
         andremalveira  
         </a> */}
       </div>
         <Drawer 
+          btnRef={btnRef}
           visible={show}
+          clickOut
+          onClose={({clickOut}) => {
+            setShow(!clickOut)
+          }}
         >
           teste
         </Drawer>

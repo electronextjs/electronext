@@ -1,23 +1,12 @@
 import React from 'react'
 
 import { useClickOut } from '../../hooks'
-import { ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
 import { DrawerContainer, Relative } from './styled'
-
-type Drawer = {
-  visible: boolean;
-  onClose?: (res:{clickOut?:boolean}) => any;
-  clickOut?: boolean;
-  children: ReactNode;
-  placement?: 'left' | 'right';
-  
-  style?: React.CSSProperties;
-  className?: string;
-  id?: string;
-}
+import { DrawerDefault } from '../../types'
 
 export const Drawer = ({
   visible, 
@@ -28,10 +17,10 @@ export const Drawer = ({
   style,
   className,
   id,
-}:Drawer) => {
+  btnRef 
+}:DrawerDefault) => {
   //@warn useClickOut
   const {isVisible, ref, setIsVisible} = useClickOut(false)
-  //const [menuState, setMenuState ] = useState<boolean | null >(visible)
   const [menuLoaded, setMenuLoaded] = useState<boolean | null >(false)
   const [menuAnimation, setAnimation] = useState<boolean | null >(false)
 
@@ -48,17 +37,24 @@ export const Drawer = ({
   useEffect(() => {
     if(clickOut) {
       !isVisible && onClose && onClose({clickOut:!isVisible})
-      //!isVisible && setMenuState(false)
-      //!isVisible && setIsVisible(false)
     }
   }, [isVisible])
 
   useEffect(() => {
     clickOut && setIsVisible(visible)
+    if(clickOut && btnRef) {
+      if( visible ) {
+        btnRef?.current.classList.add('disabled')
+      } else {
+        btnRef?.current.classList.remove('disabled')
+      }
+    }
     showMenu(visible, 40)
   }, [visible])
 
-
+  useEffect(() => {
+  
+  },[])
   return(<>
    {menuLoaded && ReactDOM.createPortal( 
      <DrawerContainer 

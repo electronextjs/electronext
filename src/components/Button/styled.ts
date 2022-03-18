@@ -15,6 +15,7 @@ export const ButtonContainer = styled.div`
   overflow: hidden; 
   gap: 0.8rem;
   min-width: 7rem;
+  width: fit-content;
   justify-content: center;
   z-index: 0;
   font-size: 0.9rem;

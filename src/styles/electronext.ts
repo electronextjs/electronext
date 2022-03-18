@@ -75,4 +75,7 @@ button, input, select, option {
   padding: 0.3rem 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.disabled {
+  pointer-events: none;
+}
 `

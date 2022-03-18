@@ -4,7 +4,7 @@
 <a href="#details">
 <img src="https://img.shields.io/badge/License-MIT-319046?" alt="License-MIT"/>
 &nbsp;&nbsp;
-<img src="https://img.shields.io/badge/npm-v1.0.4-319046" alt="npm"/>
+<img src="https://img.shields.io/badge/npm-v1.0.5-319046" alt="npm"/>
 </a>
 </p>
 
