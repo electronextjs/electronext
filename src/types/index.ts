@@ -20,6 +20,7 @@ export type UseElectroNextApp = {
   titleBarColor: string;
   menuState: boolean;
   loading: boolean;
+  Electron?: any;
 }
 
 export type UseElectroNextAppOptions = {
@@ -41,6 +42,7 @@ export interface enConfigAppType {
 export type ElectroNextProviderProps = {
   children: ReactNode
   CustomMenuDrawer?: React.ReactElement | JSX.Element,
+  CustomTitleBar?: React.ReactElement | JSX.Element,
   title?: string | null;
   favicon?: string | null;
   titleBarColor?: string | null;
@@ -54,16 +56,20 @@ export interface ButtonDefault {
   icon?: string | JSX.Element;
   active?: boolean;
   onClick?: (e?:MouseEvent<HTMLDivElement>) => any;
-  href?: string;
+  extUrl?: string;
+  link?: string;
   fontSize?: number;
   ref?: React.MutableRefObject<any>;
+  style?: React.CSSProperties;
+  className?: string;
+  id?: string;
 }
 
 export interface DrawerDefault {
   visible: boolean;
   onClose?: (res:{clickOut?:boolean}) => any;
   clickOut?: boolean;
-  children: ReactNode;
+  children: ReactNode | JSX.Element;
   placement?: 'left' | 'right';
   btnRef?: React.MutableRefObject<HTMLDivElement | HTMLButtonElement> | React.MutableRefObject<any> ;
   style?: React.CSSProperties;

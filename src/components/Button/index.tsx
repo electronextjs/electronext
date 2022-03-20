@@ -13,21 +13,23 @@ export const Button = React.forwardRef((props:Button, ref:React.Ref<HTMLDivEleme
   const buttonType = props.type ?? 'default'
 
   const onClick = (e:MouseEvent<HTMLDivElement>) => {
-    !props.href && props.onClick && props.onClick(e)
-    props.href && window.open(props.href)
+    !props.extUrl && props.onClick && props.onClick(e)
+    props.extUrl && window.open(props.extUrl)
   }
 
   return(<>
     <ButtonContainer
       ref={ref}
       onClick={e => onClick(e)}
-      className={`${buttonType} `}
+      className={`${buttonType} ${props.className}`}
+      id={props.id}
       style={{
+        ...props.style,
         fontSize: props.fontSize
       }}
     >
       {props.loading
-      ? <Loading/>
+      ? <Loading size={20} strokeWidth={4}/>
       : <>
         {props.icon &&
           <i data-icon>{props.icon}</i>

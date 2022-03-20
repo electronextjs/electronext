@@ -50,7 +50,7 @@ const TitleBar = () => {
 
   //@warn useElectroNext
   const { setMenuState, config } = useContext(ElectroNextContext)
-  const { title, favicon, titleBarColor, menuState  } = useElectroNextApp({
+  const { title, favicon, titleBarColor, menuState } = useElectroNextApp({
     title: windowTitle,
     favicon: windowFavicon
   })

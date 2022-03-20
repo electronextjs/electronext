@@ -13,16 +13,18 @@ export const ButtonList = (props:ButtonList ) => {
   const buttonType = props.type ?? 'click'
 
   const onClick = (e:MouseEvent<HTMLDivElement>) => {
-    !props.href && props.onClick && props.onClick(e)
+    !props.extUrl && props.onClick && props.onClick(e)
     buttonType == 'select' && setActive(!active)
-    props.href && window.open(props.href)
+    props.extUrl && window.open(props.extUrl)
   }
 
   return(<>
     <ButtonListContainer
       onClick={e => onClick(e)}
-      className={`${buttonType} ${active ? 'active' : ''}`}
+      className={`${buttonType} ${active ? 'active' : ''} ${props.className}`}
+      id={props.id}
       style={{
+        ...props.style,
         fontSize: props.fontSize
       }}
     >

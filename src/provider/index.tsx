@@ -34,7 +34,9 @@ const ElectroNextApp = (props:ElectroNextProviderProps) => {
     }
     }>
       <ElectroNextStyle/>
-      <TitleBar />
+      <div id="__TitleBar">
+        {!props.CustomTitleBar ? <TitleBar /> : props.CustomTitleBar}
+      </div>
       <div id='__App'>
         { props.children }
       </div>

@@ -52,9 +52,6 @@ export const Drawer = ({
     showMenu(visible, 40)
   }, [visible])
 
-  useEffect(() => {
-  
-  },[])
   return(<>
    {menuLoaded && ReactDOM.createPortal( 
      <DrawerContainer 

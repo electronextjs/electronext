@@ -77,14 +77,20 @@ const hmf = `
   padding: 0 1rem;
   gap: 0.2rem;
 `
-export const DrawerHeader = styled.div`
+export const DrawerHeader = styled.div.attrs({
+  id: 'drawer-header'
+})`
   ${hmf}
 `
-export const DrawerMain = styled.div`
+export const DrawerMain = styled.div.attrs({
+  id: 'drawer-main'
+})`
   ${hmf}
   height: 100%;
 `
-export const DrawerFooter = styled.div`
+export const DrawerFooter = styled.div.attrs({
+  id: 'drawer-footer'
+})`
   ${hmf}
 `
 

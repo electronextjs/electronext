@@ -1,15 +1,10 @@
 import React, { useState, useRef } from 'react'
 
-import { Title, Favicon } from '../'
+import { Title, Favicon, DrawerHeader } from '../'
 import { ElectroNextHomeContainer } from './styled'
-import { Drawer, useElectroNextApp, Button } from "../"
-
+import { Drawer, DrawerFooter, ButtonList } from "../"
 
 export const ElectroNextHome = () => {
-  const { title } = useElectroNextApp({
-    title: 'New Title',
-    favicon: '/img/favicon/electron.png'
-  })
 
   const btnRef = useRef(null)
 
@@ -28,11 +23,7 @@ return (<>
         <NextIcon/>
       </div>
       <div className='footer' >
-        <Button ref={btnRef} label={title} onClick={() => {setShow(!show)}}/>
-        {/* by
-        <a href="https://github.com/andremalveira" target='_blank'>
-        andremalveira  
-        </a> */}
+        
       </div>
         <Drawer 
           btnRef={btnRef}
@@ -41,8 +32,13 @@ return (<>
           onClose={({clickOut}) => {
             setShow(!clickOut)
           }}
-        >
-          teste
+        > 
+          <DrawerHeader>
+            <ButtonList label='teste'/>
+          </DrawerHeader>
+          <DrawerFooter>
+            <ButtonList label='teste'/>
+          </DrawerFooter>
         </Drawer>
         <Drawer 
           placement='right'
