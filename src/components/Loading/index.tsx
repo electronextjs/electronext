@@ -16,8 +16,10 @@ export const Loading = (props:LoadingProps) => {
     <styled.SpinnerContainer 
       id={props.id}
       className={props.className}
-      style={props.style}
-      absolute={props.absolute}
+      style={{
+        ...props.style,
+        position: props.absolute ? 'absolute' : undefined
+      }}
     >
       <styled.Svg 
         color={props.color ?? '#fff'} 

@@ -7,13 +7,10 @@ export const ElectroNextHomeContainer = styled.div`
   align-items: center;
   height: 90vh;
   color: #fff;
-  gap: 2rem;
 
-
-  & .heart {
-    font-size: 4.5rem;
-    font-family: system-ui;
-    animation: pulse 2s linear infinite;
+  & .logo {
+    position: relative;
+    //animation: pulse 2s linear infinite;
   }
   @keyframes pulse {
     0% {transform: scale(1);}

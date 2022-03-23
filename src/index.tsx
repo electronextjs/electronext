@@ -18,7 +18,7 @@ import {
   Button,ButtonList,
   Drawer,DrawerFooter,
   DrawerHeader, DrawerMain,
-  Hr, Loading,
+  Hr, Loading
 
 } from './components'
 
@@ -38,16 +38,16 @@ export {
   DrawerHeader, DrawerMain,
   Hr, Loading
 }
-export type { enConfigAppType } from './types'
+export type { enConfigAppType, enConfigElectronType } from './types'
 export default ElectroNextApp
 
 //others components
 
-export const Title = ({children}:{children: string}) => {
+export const Title = (props: {children: string}) => {
   const { setTitle } = useContext(ElectroNextContext)
   useEffect(() => {
-    setTitle(children)
-  },[children])
+    setTitle(props.children)
+  },[props.children])
   return null
 }
 export const Favicon = ({src}:{src: string})  => {

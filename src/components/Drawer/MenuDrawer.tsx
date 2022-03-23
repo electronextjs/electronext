@@ -62,11 +62,11 @@ const MenuElectroNext = () => {
 
   return(<>
     <DrawerMain>
-      <ButtonList icon={<IconDoc/>} label='Documentation'/>
-      <ButtonList icon={<IconRepo/>} label='Repository' href='https://github.com/andremalveira/ElectroNext.js'/>
+      <ButtonList icon={<IconDoc/>} label='Documentation' extUrl='https://electronextjs.vercel.app'/>
+      <ButtonList icon={<IconRepo/>} label='Repository' extUrl='https://github.com/electronextjs/ElectroNext.js'/>
       <Hr/>
-      <ButtonList icon={<IconReport/>} label='Report Issue' href='https://github.com/andremalveira/ElectroNext.js/issues/new'/>
-      <ButtonList icon={<IconIssue/>} label='Issues' href='https://github.com/andremalveira/ElectroNext.js/issues'/>
+      <ButtonList icon={<IconReport/>} label='Report Issue' extUrl='https://github.com/electronextjs/ElectroNext.js/issues/new'/>
+      <ButtonList icon={<IconIssue/>} label='Issues' extUrl='https://github.com/electronextjs/ElectroNext.js/issues'/>
 
     </DrawerMain>
     

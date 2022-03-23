@@ -40,8 +40,11 @@ html, body, #__next {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #__App {
+  position: relative;
   z-index: 0;
   box-sizing: border-box;
+  overflow: auto;
+  height: 100%;
 }
 *::selection {
   background: var(--electronext-purple);

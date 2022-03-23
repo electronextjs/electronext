@@ -3,7 +3,6 @@ import styled from "styled-components";
 type LoadingProps = {
   background?: string ;
   height?: string;
-  absolute?: boolean;
 }
 
 
@@ -12,7 +11,7 @@ export const SpinnerContainer = styled.div<LoadingProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${props => props.absolute ? 'position: absolute;' : ''}
+  //position: absolute;
 
 `
 export const Svg = styled.svg `

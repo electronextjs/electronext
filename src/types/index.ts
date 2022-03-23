@@ -29,7 +29,18 @@ export type UseElectroNextAppOptions = {
   titleBarColor?: string | null;
   menuState?: boolean;
 }
-
+export interface enConfigElectronType {
+  window: {
+    width: number,
+    height: number,
+    titleBarDefault: boolean,
+    windowBackground: string,
+    windowsEffect: string,
+    useCustomWindowRefreshMethod: boolean,
+    disableOnBlur: boolean,
+    debug: boolean
+  }
+}
 export interface enConfigAppType {
   titleBar: {
     visible: boolean,
